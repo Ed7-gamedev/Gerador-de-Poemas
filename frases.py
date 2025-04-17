@@ -1,4 +1,6 @@
-import random
+from f1 import f1
+from f2 import f2
+from f3 import f3
 
 frases = [
     ("A lua brilha sobre o mar", "Natureza", "mar"),
@@ -749,79 +751,379 @@ frases = [
     ("Horizonte se dissolve em cores", "Natureza", "res"),
     ("Sorrisos aquecem a alma", "Felicidade", "lma"),
     ("Chuva traz promessas distantes", "Natureza", "tes"),
+    ("Coração bate em desatino", "Amor", "ino"),
+    ("Teus olhos brilham como estrelas", "Amor", "las"),
+    ("Em teus braços mora a calma", "Amor", "lma"),
+    ("Nosso amor corre como rio", "Amor", "rio"),
+    ("Teu perfume embriaga a alma", "Amor", "lma"),
+    ("Sussurros doces na madrugada", "Amor", "ada"),
+    ("Teus lábios trazem poesia", "Amor", "sia"),
+    ("Meu peito arde em desejo", "Amor", "ejo"),
+    ("Tua ausência é tempestade", "Amor", "ade"),
+    ("Nosso beijo tem sabor de céu", "Amor", "éu"),
+    ("Cada toque teu é chama", "Amor", "ama"),
+    ("És a luz na minha estrada", "Amor", "ada"),
+    ("Sentir teu cheiro me acalma", "Amor", "lma"),
+    ("Teu amor é mar sereno", "Amor", "eno"),
+    ("Palavras tuas são abrigo", "Amor", "igo"),
+    ("No teu peito eu me perco", "Amor", "rco"),
+    ("A saudade grita forte", "Amor", "rte"),
+    ("Sem teus beijos, sou inverno", "Amor", "rno"),
+    ("Teu sorriso é meu abrigo", "Amor", "igo"),
+    ("Amar-te é voar sem medo", "Amor", "edo"),
+    ("Tua voz embala sonhos", "Amor", "hos"),
+    ("Meu olhar busca o teu", "Amor", "teu"),
+    ("Em teus braços sou completo", "Amor", "eto"),
+    ("No silêncio, teu nome ecoa", "Amor", "coa"),
+    ("És a chama que me aquece", "Amor", "ece"),
+    ("No teu abraço o tempo para", "Amor", "ara"),
+    ("Caminho em teus sonhos leves", "Amor", "ves"),
+    ("Sinto tua pele na brisa", "Amor", "isa"),
+    ("A distância dói na alma", "Amor", "lma"),
+    ("Entre versos, teu nome escrevo", "Amor", "evo"),
+    ("Tuas promessas são estrelas", "Amor", "las"),
+    ("Te amar é perder o chão", "Amor", "ão"),
+    ("Ecos doces do teu riso", "Amor", "iso"),
+    ("Teu olhar me desarma", "Amor", "rma"),
+    ("Teu calor é minha casa", "Amor", "asa"),
+    ("Nosso amor é mar revolto", "Amor", "olto"),
+    ("Na tua ausência, sou sombra", "Amor", "bra"),
+    ("Teu beijo é brisa suave", "Amor", "ave"),
+    ("Teu toque apaga a dor", "Amor", "dor"),
+    ("Teu nome vive em meu peito", "Amor", "eito"),
+    ("Te espero em cada aurora", "Amor", "ora"),
+    ("Tua lembrança me embriaga", "Amor", "aga"),
+    ("No teu riso, encontro paz", "Amor", "az"),
+    ("Nosso amor resiste ao tempo", "Amor", "mpo"),
+    ("Cada verso tem teu nome", "Amor", "ome"),
+    ("Nosso encontro foi destino", "Amor", "ino"),
+    ("Minha alma dança em ti", "Amor", "ti"),
+    ("Entre nós, só existe o infinito", "Amor", "ito"),
+    ("O universo canta nosso amor", "Amor", "mor"),
+    ("Amar-te é ser livre no vento", "Amor", "ento"),
+    ("Sem ti, o mundo perde cor", "Amor", "cor"),
+    ("Teus olhos são minha bússola", "Amor", "ola"),
+    ("No teu abraço, sou imortal", "Amor", "tal"),
+    ("O amor em nós sempre brilha", "Amor", "lha"),
+    ("Teus gestos são poesia viva", "Amor", "iva"),
+    ("No teu beijo, mora o verão", "Amor", "ão"),
+    ("Tua voz é melodia doce", "Amor", "ce"),
+    ("Cada toque teu é promessa", "Amor", "ssa"),
+    ("Nosso amor não conhece fim", "Amor", "fim"),
+    ("Nosso enlace é chama eterna", "Amor", "rna"),
+    ("A vida sorri quando estás", "Amor", "tás"),
+    ("No teu amor, encontro lar", "Amor", "lar"),
+    ("Sem teu amor, sou inverno", "Amor", "rno"),
+    ("Te amar é sempre renascer", "Amor", "cer"),
+    ("És o sol que me ilumina", "Amor", "ina"),
+    ("Nos teus braços, o mundo some", "Amor", "ome"),
+    ("Nosso amor brilha como a lua", "Amor", "lua"),
+    ("Cada instante teu é festa", "Amor", "sta"),
+    ("Tua essência mora em mim", "Amor", "mim"),
+    ("Teu toque é pura magia", "Amor", "gia"),
+    ("Nosso amor nunca se apaga", "Amor", "aga"),
+    ("Tua presença é meu refúgio", "Amor", "gio"),
+    ("Em teu riso, sou criança", "Amor", "ça"),
+    ("Nosso amor não tem fronteiras", "Amor", "ras"),
+    ("Cada suspiro fala de ti", "Amor", "ti"),
+    ("No teu olhar, o céu inteiro", "Amor", "eiro"),
+    ("Sem teus braços, sou vazio", "Amor", "zio"),
+    ("Te amar é dançar no vento", "Amor", "ento"),
+    ("Tua pele é brisa quente", "Amor", "nte"),
+    ("Teu nome pulsa em meu peito", "Amor", "eito"),
+    ("Tua ausência é noite fria", "Amor", "ria"),
+    ("Nosso amor escreve histórias", "Amor", "ias"),
+    ("Cada suspiro teu é mel", "Amor", "mel"),
+    ("Na tua voz, sou poesia", "Amor", "sia"),
+    ("Teu beijo tem gosto de céu", "Amor", "éu"),
+    ("Sem ti, o tempo se arrasta", "Amor", "sta"),
+    ("Meu amor vive em teus versos", "Amor", "rsos"),
+    ("No teu peito, sou abrigo", "Amor", "igo"),
+    ("Teu abraço é mar sereno", "Amor", "eno"),
+    ("Na tua luz, sou estrela", "Amor", "ela"),
+    ("Nosso amor voa sem medo", "Amor", "edo"),
+    ("A lua brilha sobre o mar", "Natureza", "mar"),
+    ("O vento canta entre as árvores", "Natureza", "res"),
+    ("No silêncio ouço teu nome", "Amor", "ome"),
+    ("O tempo voa sem avisar", "Vida", "sar"),
+    ("As estrelas dançam no céu", "Universo", "céu"),
+    ("O amor aquece o coração", "Amor", "ão"),
+    ("A chuva cai e traz lembranças", "Reflexão", "ças"),
+    ("O sol desponta no horizonte", "Natureza", "nte"),
+    ("As folhas caem no outono", "Estação", "ono"),
+    ("O mar esconde segredos", "Mar", "dos"),
+    ("A brisa leva pensamentos", "Natureza", "tos"),
+    ("Os versos cantam a vida", "Poesia", "ida"),
+    ("O tempo molda o futuro", "Reflexão", "uro"),
+    ("A verdade brilha no olhar", "Reflexão", "har"),
+    ("O silêncio acalma a alma", "Reflexão", "lma"),
+    ("A sombra esconde ilusões", "Mistério", "ões"),
+    ("O amor floresce em gestos", "Amor", "tos"),
+    ("Os caminhos se cruzam sempre", "Destino", "pre"),
+    ("A fé renova esperanças", "Sentimento", "ças"),
+    ("O vento canta pelos campos", "Natureza", "pos"),
+    ("As estrelas desenham sonhos", "Universo", "hos"),
+    ("A alma se encanta com a arte", "Sentimento", "rte"),
+    ("Os corações batem em sintonia", "Amor", "nia"),
+    ("A noite se veste de magia", "Universo", "gia"),
+    ("O mar reflete a imensidão", "Mar", "ão"),
+    ("A luz guia pelos caminhos", "Reflexão", "hos"),
+    ("O riso ilumina a alma", "Felicidade", "lma"),
+    ("As lágrimas lavam a tristeza", "Sentimento", "za"),
+    ("O futuro nasce no presente", "Reflexão", "nte"),
+    ("A estrada se abre ao destino", "Destino", "ino"),
+    ("O tempo desvenda o passado", "Reflexão", "ado"),
+    ("Os olhos brilham ao entardecer", "Sentimento", "cer"),
+    ("O abraço dissolve a distância", "Sentimento", "cia"),
+    ("A lua dança com as estrelas", "Universo", "las"),
+    ("A brisa leva segredos", "Natureza", "dos"),
+    ("Os sonhos guiam a caminhada", "Sonhos", "ada"),
+    ("A poesia colore os dias", "Poesia", "ias"),
+    ("O olhar esconde verdades", "Reflexão", "des"),
+    ("O destino escreve a jornada", "Destino", "ada"),
+    ("O mar canta suas melodias", "Mar", "ias"),
+    ("O tempo ensina a esperar", "Reflexão", "rar"),
+    ("A noite acende os desejos", "Sentimento", "jos"),
+    ("A sombra dança na parede", "Mistério", "ede"),
+    ("O amor aquece até o inverno", "Amor", "rno"),
+    ("As nuvens desenham esperanças", "Natureza", "ças"),
+    ("O som da chuva embala sonhos", "Natureza", "hos"),
+    ("O sol reflete o recomeço", "Natureza", "eço"),
+    ("Os pássaros anunciam o novo dia", "Natureza", "dia"),
+    ("As folhas sussurram segredos", "Natureza", "dos"),
+    ("A eternidade cabe num instante", "Reflexão", "nte"),
+    ("O céu se veste de dourado", "Natureza", "ado"),
+    ("A alma sente a imensidão", "Sentimento", "ão"),
+    ("Os rios correm para o mar", "Natureza", "mar"),
+    ("A manhã traz novas promessas", "Tempo", "sas"),
+    ("O silêncio grita em solidão", "Reflexão", "ão"),
+    ("As pegadas contam histórias", "Vida", "ias"),
+    ("Os olhos veem além do tempo", "Sentimento", "mpo"),
+    ("O horizonte se abre ao futuro", "Destino", "uro"),
+    ("A esperança se espalha no ar", "Sentimento", "lar"),
+    ("O dia amanhece com um sorriso", "Felicidade", "iso"),
+    ("O amor se encontra no olhar", "Amor", "har"),
+    ("As ondas falam com a praia", "Mar", "aia"),
+    ("O tempo é mestre do saber", "Reflexão", "ber"),
+    ("O sol se esconde entre as nuvens", "Natureza", "ens"),
+    ("O tempo ensina sem avisar", "Reflexão", "sar"),
+    ("O vento dança com as folhas", "Natureza", "has"),
+    ("Os sonhos brilham no escuro", "Sonhos", "uro"),
+    ("O mar abraça a areia fina", "Mar", "ina"),
+    ("A chuva canta sua melodia", "Natureza", "dia"),
+    ("O destino sopra em silêncio", "Destino", "cio"),
+    ("A brisa toca o rosto leve", "Natureza", "eve"),
+    ("O amor cresce sem medida", "Amor", "ida"),
+    ("A noite abraça os pensamentos", "Reflexão", "tos"),
+    ("A esperança renasce no peito", "Sentimento", "ito"),
+    ("Os olhos refletem a verdade", "Reflexão", "ade"),
+    ("As estrelas riscam o céu", "Universo", "céu"),
+    ("A lua ilumina o caminho", "Universo", "nho"),
+    ("Os dias correm sem parar", "Tempo", "rar"),
+    ("A sombra esconde lembranças", "Reflexão", "ças"),
+    ("O silêncio grita por dentro", "Reflexão", "tro"),
+    ("O rio segue sua jornada", "Natureza", "ada"),
+    ("O olhar diz o que as palavras calam", "Sentimento", "lam"),
+    ("O amor floresce no toque", "Amor", "que"),
+    ("O riso espanta a tristeza", "Felicidade", "za"),
+    ("O céu desenha promessas", "Natureza", "sas"),
+    ("Os ventos mudam os destinos", "Destino", "nos"),
+    ("A saudade pesa no peito", "Sentimento", "ito"),
+    ("A poesia nasce da alma", "Poesia", "lma"),
+    ("O brilho do sol aquece", "Natureza", "ece"),
+    ("A vida sopra novos ares", "Reflexão", "res"),
+    ("As folhas caem no outono", "Natureza", "ono"),
+    ("O tempo apaga as dores", "Reflexão", "res"),
+    ("O amanhã carrega esperanças", "Tempo", "ças"),
+    ("A estrada segue sem fim", "Destino", "fim"),
+    ("Os passos ecoam na rua", "Vida", "rua"),
+    ("A tempestade traz renovo", "Natureza", "ovo"),
+    ("O abraço dissolve medos", "Sentimento", "dos"),
+    ("Os versos contam histórias", "Poesia", "ias"),
+    ("O coração pulsa em segredo", "Sentimento", "edo"),
+    ("O horizonte esconde mistérios", "Natureza", "ios"),
+    ("A brisa leva os pensamentos", "Natureza", "tos"),
+    ("A fé ilumina o impossível", "Reflexão", "vel"),
+    ("O tempo lapida memórias", "Reflexão", "ias"),
+    ("Os pássaros anunciam o dia", "Natureza", "dia"),
+    ("O som da chuva acalma", "Natureza", "lma"),
+    ("O silêncio envolve a noite", "Reflexão", "ite"),
+    ("A lua sussurra canções", "Universo", "ões"),
+    ("As ondas falam ao vento", "Mar", "nto"),
+    ("Os sonhos atravessam o tempo", "Sonhos", "mpo"),
+    ("O sorriso aquece a alma", "Felicidade", "lma"),
+    ("O destino se refaz sempre", "Destino", "pre"),
+    ("O olhar dança na multidão", "Sentimento", "ão"),
+    ("A esperança pinta o horizonte", "Sentimento", "nte"),
+    ("A verdade brilha na sombra", "Reflexão", "bra"),
+    ("O toque traduz emoções", "Sentimento", "ões"),
+    ("O passado dorme no presente", "Tempo", "nte"),
+    ("O dia amanhece em cores", "Natureza", "res"),
+    ("A estrada nos leva além", "Destino", "lem"),
+    ("O mar carrega segredos", "Mar", "dos"),
+    ("O tempo tece ilusões", "Reflexão", "ões"),
+    ("A brisa sopra leve e fria", "Natureza", "ria"),
+    ("Os olhos guardam promessas", "Sentimento", "sas"),
+    ("O vento espalha lembranças", "Natureza", "ças"),
+    ("O coração escreve histórias", "Sentimento", "ias"),
+    ("O riso ilumina o escuro", "Felicidade", "uro"),
+    ("O amor transcende distâncias", "Amor", "cias"),
+    ("As nuvens escondem desejos", "Natureza", "jos"),
+    ("Os rios correm para o mar", "Natureza", "mar"),
+    ("A saudade ecoa na mente", "Sentimento", "nte"),
+    ("O dia nasce e se despede", "Tempo", "ede"),
+    ("O silêncio é voz do coração", "Reflexão", "ão"),
+    ("As estrelas guiam caminhos", "Universo", "hos"),
+    ("O amor colore os segundos", "Amor", "dos"),
+    ("Os ventos desenham esperanças", "Natureza", "ças"),
+    ("O destino sopra em mistério", "Destino", "rio"),
+    ("Os sonhos flutuam no ar", "Sonhos", "lar"),
+    ("A vida é feita de ciclos", "Reflexão", "cos"),
+    ("O mar dança com as marés", "Mar", "rés"),
+    ("A fé atravessa fronteiras", "Reflexão", "ras"),
+    ("A lua reflete o infinito", "Universo", "ito"),
+    ("Os versos nascem do silêncio", "Poesia", "cio"),
+    ("O tempo escreve novas páginas", "Reflexão", "gas"),
+    ("O olhar revela segredos", "Sentimento", "dos"),
+    ("As pegadas somem na areia", "Natureza", "eia"),
+    ("A sombra dança na parede", "Mistério", "ede"),
+    ("O sorriso reflete esperança", "Felicidade", "ça"),
+    ("A estrada ensina paciência", "Destino", "cia"),
+    ("Os desejos flutuam na brisa", "Sentimento", "isa"),
+    ("A verdade se esconde nas entrelinhas", "Reflexão", "has"),
+    ("A eternidade cabe num instante", "Tempo", "nte"),
+    ("O amor é chama que nunca apaga", "Amor", "aga"),
+    ("O vento leva os pensamentos", "Natureza", "tos"),
+    ("O mar abraça a imensidão", "Mar", "ão"),
+    ("A lua reflete a solidão", "Universo", "ão"),
+    ("O tempo escreve sem parar", "Reflexão", "rar"),
+    ("As estrelas dançam no céu", "Universo", "céu"),
+    ("Os sonhos sopram esperança", "Sonhos", "ça"),
+    ("O amor aquece em silêncio", "Amor", "cio"),
+    ("O riso ilumina a estrada", "Felicidade", "ada"),
+    ("A saudade canta ao longe", "Sentimento", "nge"),
+    ("A noite abraça os segredos", "Mistério", "dos"),
+    ("O sol desponta no horizonte", "Natureza", "nte"),
+    ("O destino pinta surpresas", "Destino", "sas"),
+    ("As ondas beijam a areia", "Mar", "eia"),
+    ("O silêncio fala bem alto", "Reflexão", "lto"),
+    ("A estrada segue sem medo", "Destino", "edo"),
+    ("O tempo apaga cicatrizes", "Reflexão", "zes"),
+    ("A chuva traz novos ares", "Natureza", "res"),
+    ("O olhar revela memórias", "Sentimento", "ias"),
+    ("A alma dança com o vento", "Sentimento", "nto"),
+    ("A esperança brilha distante", "Sentimento", "nte"),
+    ("A sombra se esconde no dia", "Mistério", "dia"),
+    ("Os rios buscam o oceano", "Natureza", "ano"),
+    ("A paixão queima sem culpa", "Amor", "pa"),
+    ("Os versos contam histórias", "Poesia", "ias"),
+    ("O destino escreve sem pressa", "Destino", "ssa"),
+    ("A brisa sopra canções", "Natureza", "ões"),
+    ("O céu desenha fantasias", "Universo", "ias"),
+    ("O sorriso reflete ternura", "Felicidade", "ura"),
+    ("As folhas caem no outono", "Natureza", "ono"),
+    ("O tempo ensina a esperar", "Reflexão", "rar"),
+    ("Os corações pulsam em sintonia", "Amor", "nia"),
+    ("A saudade ecoa no peito", "Sentimento", "ito"),
+    ("O amor cresce em detalhes", "Amor", "hes"),
+    ("O mar sussurra desejos", "Mar", "jos"),
+    ("A estrada leva para longe", "Destino", "nge"),
+    ("O horizonte some na neblina", "Natureza", "ina"),
+    ("O destino brinca com a sorte", "Destino", "rte"),
+    ("A lua ilumina os caminhos", "Universo", "hos"),
+    ("As pegadas somem na areia", "Natureza", "eia"),
+    ("A tempestade renova a vida", "Natureza", "ida"),
+    ("O silêncio pesa na noite", "Reflexão", "ite"),
+    ("As estrelas são poesias no céu", "Universo", "céu"),
+    ("Os dias passam como nuvens", "Tempo", "ens"),
+    ("O olhar carrega verdades", "Reflexão", "des"),
+    ("O abraço dissolve a dor", "Sentimento", "dor"),
+    ("Os segredos dormem na mente", "Mistério", "nte"),
+    ("A noite veste-se de prata", "Universo", "ata"),
+    ("O vento espalha lembranças", "Natureza", "ças"),
+    ("A fé colore a escuridão", "Sentimento", "ão"),
+    ("O tempo muda sem aviso", "Reflexão", "iso"),
+    ("A lágrima conta a saudade", "Sentimento", "ade"),
+    ("Os sonhos voam na brisa", "Sonhos", "isa"),
+    ("O riso preenche o silêncio", "Felicidade", "cio"),
+    ("O mar canta melodias antigas", "Mar", "gas"),
+    ("O passado dorme no presente", "Reflexão", "nte"),
+    ("O destino pinta recomeços", "Destino", "ços"),
+    ("O sol aquece a esperança", "Natureza", "ça"),
+    ("O eco repete a solidão", "Reflexão", "ão"),
+    ("O amor é chama infinita", "Amor", "ita"),
+    ("Os versos nascem do peito", "Poesia", "ito"),
+    ("As estrelas piscam em segredo", "Universo", "edo"),
+    ("O tempo carrega promessas", "Reflexão", "sas"),
+    ("A sombra dança na parede", "Mistério", "ede"),
+    ("A estrada ensina lições", "Destino", "ões"),
+    ("A alma sente a imensidão", "Sentimento", "ão"),
+    ("O tempo sussurra mudanças", "Reflexão", "ças"),
+    ("O sol despede-se em fogo", "Natureza", "ogo"),
+    ("O coração pulsa certezas", "Sentimento", "zas"),
+    ("A verdade dorme no olhar", "Reflexão", "har"),
+    ("Os desejos flutuam na brisa", "Sentimento", "isa"),
+    ("A lua encanta os apaixonados", "Universo", "dos"),
+    ("O tempo dissolve ilusões", "Reflexão", "ões"),
+    ("O vento espalha suspiros", "Natureza", "ros"),
+    ("Os olhos brilham na escuridão", "Sentimento", "ão"),
+    ("A fé rompe barreiras", "Reflexão", "ras"),
+    ("O amor floresce na espera", "Amor", "era"),
+    ("As pegadas contam segredos", "Natureza", "dos"),
+    ("Os dias clareiam memórias", "Tempo", "ias"),
+    ("A tempestade anuncia mudanças", "Natureza", "ças"),
+    ("O mar esconde mistérios", "Mar", "ios"),
+    ("O tempo apaga incertezas", "Reflexão", "zas"),
+    ("O olhar guarda promessas", "Sentimento", "sas"),
+    ("Os sonhos acendem caminhos", "Sonhos", "hos"),
+    ("A noite cobre a cidade", "Natureza", "ade"),
+    ("A lua sorri para o mar", "Universo", "mar"),
+    ("O destino se refaz sempre", "Destino", "pre"),
+    ("O vento toca a pele fria", "Natureza", "ria"),
+    ("O coração canta esperanças", "Sentimento", "ças"),
+    ("As nuvens escondem mistérios", "Natureza", "ios"),
+    ("A brisa toca leve a pele", "Natureza", "ele"),
+    ("O sol renasce a cada dia", "Natureza", "dia"),
+    ("A noite esconde os segredos", "Mistério", "dos"),
+    ("O mar canta versos antigos", "Mar", "gos"),
+    ("Os olhos refletem memórias", "Reflexão", "ias"),
+    ("A chuva embala os corações", "Natureza", "ões"),
+    ("O vento sussurra baixinho", "Natureza", "nho"),
+    ("As estrelas brilham em festa", "Universo", "sta"),
+    ("O tempo dança sem parar", "Reflexão", "rar"),
+    ("A esperança acende caminhos", "Sentimento", "hos"),
+    ("A saudade grita no peito", "Sentimento", "ito"),
+    ("O riso ilumina a jornada", "Felicidade", "ada"),
+    ("A lua observa em silêncio", "Universo", "cio"),
+    ("Os dias correm apressados", "Tempo", "dos"),
+    ("As sombras falam baixinho", "Mistério", "nho"),
+    ("O amor floresce na calma", "Amor", "lma"),
+    ("O destino traça mistérios", "Destino", "ios"),
+    ("Os pássaros cantam a aurora", "Natureza", "ora"),
+    ("O olhar atravessa distâncias", "Sentimento", "cias"),
+    ("O mar esconde seus segredos", "Mar", "dos"),
+    ("Os sonhos tocam o infinito", "Sonhos", "ito"),
+    ("A alma respira esperança", "Sentimento", "ça"),
+    ("O vento espalha promessas", "Natureza", "sas"),
+    ("As pegadas somem na areia", "Natureza", "eia"),
+    ("O sol aquece a memória", "Natureza", "ria"),
+    ("A noite beija o horizonte", "Universo", "nte"),
+    ("A tempestade traz mudanças", "Natureza", "ças"),
+    ("O eco repete solidão", "Reflexão", "ão"),
 ]
 
+for frase in f1:
+    frases.append(frase)
 
-assuntos = []
+for frase in f2:
+    frases.append(frase)
 
-
-
-
-for frase in frases:
-    a = frase[1]
-    assuntos.append(frase[1])
-
-
-def separarEstrofes():
-    print()
-    print()
-    print()
+for frase in f3:
+    frases.append(frase)
 
 
-def gerarpoemaPorAssunto(assunto, linhas):
-
-    for ass in assuntos:
-        if ass == assunto:
-            random.shuffle(frases)
-            listapoema = []
-            for frase in frases:
-                if frase[1] == assunto:
-                    listapoema.append(frase[0])
-
-            random.shuffle(listapoema)
-
-            for i in range(linhas):
-                print(listapoema[i])
-
-        else:
-            pass
 
 
-def gerarpoemaPorRimas(rima, linhas):
-
-    random.shuffle(frases)
-
-    listapoema = []
-
-    for frase in frases:
-        if frase[2] == rima:
-            listapoema.append(frase[0])
-
-    random.shuffle(listapoema)
-
-    for i in range(linhas):
-        print(listapoema[i])
-
-
-def gerarpoemaAleatorio(linhas):
-    
-    poema = []
-
-    for i in range(linhas):
-        random.shuffle(frases)
-        print(frases[0][0])
-        poema.append(frases[0][0])
-    
-    return poema
-
-
-gerarpoemaPorAssunto("Sentimento", 4)
-separarEstrofes()
-gerarpoemaPorAssunto("Sentimento", 4)
-separarEstrofes()
-gerarpoemaPorAssunto("Sentimento", 3)
-separarEstrofes()
-gerarpoemaPorAssunto("Sentimento", 3)
 
 
 

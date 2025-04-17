@@ -4,29 +4,53 @@ from frases import frases
 
 
 
-versos= []
-
+rimas = []
 
 assuntos = []
 
+versos= []
 
 
-rimas= []
+def verAssunto(a):
+    b = False
+    
+    if a in assuntos:
+        b = True
+    return b
+
+def verRima(a):
+    b = False
+    
+    if a in rimas:
+        b = True
+    return b
+
+
+for frase in frases:
+    if verAssunto(frase[1])  == False:
+        assuntos.append(frase[1])
+    if verRima(frase[2])  == False:
+        rimas.append(frase[2])
+    
+    versos.append(frase[0] if frase[0] not in versos else None)
+        
+        
+    rimas.sort()
+    assuntos.sort()
+
+print(len(versos))
 
 estilos= ["soneto","hakai", "aleatorio"]
 
 listaHakai = []
 
+
+
 def exibirEstatisticas():
     """Exibe estatísticas sobre o conteúdo."""
-    print(f"Total de frases: {len(assuntos)}")
-    print(f"Total de assuntos: {len(set([a[1] for a in assuntos]))}")
-    print(f"Total de rimas: {len(set([r[1] for r in rimas]))}")
-
-for frase in frases:
-    assuntos.append(frase[1])
-    rimas.append(frase[2])
-    versos.append(frase[0])
+    print(f"Total de frases: {len(frases)}")
+    print(f"Total de assuntos: {len(set(assuntos))}")
+    print(f"Total de rimas: {len(rimas)}")
 
 
 # funções Externas
@@ -155,12 +179,11 @@ def gerarPoemaComRimasAlternadas(rima_a, rima_b, linhas_por_estrofe):
             gerarpoemaPorRimas(rima_a, 1)
             gerarpoemaPorRimas(rima_b, 1)
         separarEstrofes()
-    else:
-        print(f"Uma ou ambas as rimas '{rima_a}' e '{rima_b}' não foram encontradas.")
+    
 
 
 def gerarPoemaAcrostico(palavra, assunto):
-    """Gera um poema acróstico com base em uma palavra."""
+
     palavra = palavra.upper()
     frases_filtradas = [frase for frase  in assuntos if not assunto or assunto in frase]
     if len(frases_filtradas) < len(palavra):
@@ -176,7 +199,6 @@ def gerarPoemaAcrostico(palavra, assunto):
             print(f"(Nenhuma frase encontrada para a letra '{letra}')")
 
 def gerarPoemaCircular(assunto, linhas):
-    """Gera um poema circular onde o último verso conecta-se ao primeiro."""
     if verAssunto(assunto):
         frases_filtradas = [frase for frase in assuntos if assunto in frase]
         random.shuffle(frases_filtradas)
@@ -336,39 +358,23 @@ def gerarPoemaComLimiteDePalavras(limite_palavras):
             break
     print('\n'.join(poema))
 
-for frase in frases:
-    assuntos.append(frase[1])
-    rimas.append(frase[2])
-    versos.append(frase[0])
+
 
 def separarEstrofes():
     print("\n---\n")
+    
+    return("\n---\n")
 
-def verAssunto(assunto):
-    
-    r = False
-    
-    for i in range(len(assuntos)):
-        if assuntos[i] == assunto:
-            r = True
-    
-    return r
 
-def verRima(rima):
-    
-    r = False
-    
-    for i in range(len(assuntos)):
-        if rimas[i] == rima:
-            r = True
-    
-    return r
 
 def gerarpoemaPorAssunto(assunto, linhas):
+    
+    listapoema = []
+    listaRetorno = []
 
     if verAssunto(assunto):
         random.shuffle(frases)
-        listapoema = []
+        
         for frase in frases:
             if frase[1] == assunto:
                 listapoema.append(frase[0])
@@ -377,12 +383,18 @@ def gerarpoemaPorAssunto(assunto, linhas):
 
         for i in range(linhas):
             print(listapoema[i])
+            listaRetorno.append(listapoema[i])
+        
+    return listaRetorno
 
-def gerarpoemaPorRimas(rima, linhas):
+
+    
 
     random.shuffle(frases)
 
     listapoema = []
+    
+    listaRetorno = []
 
     for frase in frases:
         if frase[2] == rima:
@@ -392,6 +404,9 @@ def gerarpoemaPorRimas(rima, linhas):
 
     for i in range(linhas):
         print(listapoema[i])
+        listaRetorno.append(listapoema[i])
+    
+    return listaRetorno
 
 
 def gerarpoemaAleatorio(linhas):
@@ -419,6 +434,7 @@ def gerarSonetoSolto(assunto):
         gerarpoemaPorAssunto(assunto, 3)
 
 def gerarSoneto(assunto):
+    lisaRetorno = []
     if verAssunto(assunto):
         gerarpoemaPorAssunto(assunto, 4)
         separarEstrofes()
@@ -427,14 +443,37 @@ def gerarSoneto(assunto):
         gerarpoemaPorAssunto(assunto, 3)
         separarEstrofes()
         gerarpoemaPorAssunto(assunto, 3)
+        for i in gerarpoemaPorAssunto(assunto, 4):
+            lisaRetorno.append(i)
+        lisaRetorno.append(separarEstrofes())
+        for i in gerarpoemaPorAssunto(assunto, 4):
+            lisaRetorno.append(i)
+        lisaRetorno.append(separarEstrofes())
+        for i in gerarpoemaPorAssunto(assunto, 3):
+            lisaRetorno.append(i)
+        lisaRetorno.append(separarEstrofes())
+        for i in gerarpoemaPorAssunto(assunto, 3):
+            lisaRetorno.append(i)
+    
+    return lisaRetorno
 
 def gerarVersosCruzados(a,b):
-    
+    lisaRetorno = []
     if verRima(a) and verRima(b):
         gerarpoemaPorRimas(a,1)
         gerarpoemaPorRimas(b,1)
         gerarpoemaPorRimas(a,1)
         gerarpoemaPorRimas(b,1)
+        
+        for i in gerarpoemaPorRimas(a,1):
+            lisaRetorno.append(i)
+        for i in gerarpoemaPorRimas(b,1):
+            lisaRetorno.append(i)
+        for i in gerarpoemaPorRimas(a,1):
+            lisaRetorno.append(i)
+        for i in gerarpoemaPorRimas(b,1):
+            lisaRetorno.append(i)
+    return lisaRetorno
 
 def gerarVersosCruzadosAleatorios():
     
@@ -443,11 +482,17 @@ def gerarVersosCruzadosAleatorios():
     a = random.choice(rimas)
     b = random.choice(rimas)
     
+    listaRetorno = []
     
-    gerarpoemaPorRimas(a,1)
-    gerarpoemaPorRimas(b,1)
-    gerarpoemaPorRimas(a,1)
-    gerarpoemaPorRimas(b,1)
+    
+    
+    
+    listaRetorno.append(gerarpoemaPorRimas(a,1))
+    listaRetorno.append(gerarpoemaPorRimas(b,1))
+    listaRetorno.append(gerarpoemaPorRimas(a,1))
+    listaRetorno.append(gerarpoemaPorRimas(b,1))
+    
+    return listaRetorno
 
 
 def contar_frequencia_de_assuntos(assunto):
@@ -460,7 +505,6 @@ def contar_frequencia_de_assuntos(assunto):
     
     print(a)
             
-
-gerarpoemaAleatorio()
+            
 
 
